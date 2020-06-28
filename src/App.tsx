@@ -9,18 +9,17 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <header className="App-header">
+        <div className="App-header">
           <h1>REACTJS WEB APP</h1>
-          <Route
-            path=""
-            exact
-            render={() => {
-              return <MainPage />;
-            }}
-          />
-        </header>
+        </div>
       </div>
-
+      <Route
+        path=""
+        exact
+        render={() => {
+          return <MainPage />;
+        }}
+      />
       <div className="footer">
         A web application created by Lauren Mather. 2020
       </div>

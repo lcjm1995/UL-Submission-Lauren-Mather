@@ -31,7 +31,7 @@ export default function MainPage(this: any) {
 
   useEffect(() => {
     const results = mobileData.filter((mobileData) =>
-      mobileData.name.toLowerCase().includes(searchTerm.toLowerCase())
+      mobileData.type.toLowerCase().includes(searchTerm.toLowerCase())
     );
     if (searchTerm) {
       setSearchResults(results);
@@ -76,7 +76,7 @@ export default function MainPage(this: any) {
 
   return (
     <div>
-      <h1> Available Items in Stock</h1>
+      <h1 placeholder="pageHeader"> Available Items in Stock</h1>
       <div className="content-body">
         <div className="search-body">
           <Form className="searchbar-form">
@@ -90,13 +90,22 @@ export default function MainPage(this: any) {
               <div>
                 <label>Sort by price:</label>
                 <select
+                  className="select-sort"
+                  placeholder="select-sort"
                   onChange={(event) => setSelectChoice(event.target.value)}
                 >
-                  <option value={"priceAscending"}> Price (Ascending)</option>
-                  <option value={"priceDescending"}> Price (Descending)</option>
+                  <option placeholder="ascending" value={"priceAscending"}>
+                    {" "}
+                    Price (Ascending)
+                  </option>
+                  <option placeholder="descending" value={"priceDescending"}>
+                    {" "}
+                    Price (Descending)
+                  </option>
                 </select>
+                <div />
                 <label>Sort by type:</label>
-                <select>
+                <select className="select-sort">
                   <option value={"electrical"}> Electrical</option>
                   <option value={"book"}> Book</option>
                   <option value={"running"}> Running</option>
@@ -109,7 +118,7 @@ export default function MainPage(this: any) {
               <div className="items-results">
                 {searchResults.map((item) => (
                   <div>
-                    <h2>{item.id}</h2>
+                    <h1 placeholder="itemID">{item.id}</h1>
                     <p> Name: {item.name} </p>
                     <p>Description: {item.description}</p>
                     <p>Cost: {item.priceValue}</p>
